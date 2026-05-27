@@ -12,18 +12,18 @@ npm install @produck/package-meta-extractor
 ## Usage
 
 ```js
-import { PackageExtractor } from "@produck/package-meta-extractor";
+import { PackageExtractor } from '@produck/package-meta-extractor';
 
-const extractor = new PackageExtractor("/path/to/project");
+const extractor = new PackageExtractor('/path/to/project');
 
 // Read package.json
 await extractor.read();
 
 // Generate ECMAScript module (default)
-await extractor.generate("/path/to/output/meta.mjs");
+await extractor.generate('/path/to/output/meta.mjs');
 
 // Generate TypeScript module
-await extractor.generate("/path/to/output/meta.ts", "TypeScript");
+await extractor.generate('/path/to/output/meta.ts', 'TypeScript');
 ```
 
 The generated file will contain:

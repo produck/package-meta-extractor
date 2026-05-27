@@ -1,18 +1,19 @@
-import pluginJs from '@eslint/js';
+import js from '@eslint/js';
+import globals from 'globals';
 import tseslint from 'typescript-eslint';
-import * as ProduckEslint from '@produck/eslint-rules';
+import { defineConfig } from 'eslint/config';
+import * as ProduckRule from '@produck/eslint-rules';
 
-export default [
-	{
-		files: ['**/*.{js,mjs,cjs,ts}'],
-	},
-	{
-		languageOptions: {
-			globals: {},
-		},
-	},
-	pluginJs.configs.recommended,
-	...tseslint.configs.recommended,
-	ProduckEslint.config,
-	ProduckEslint.excludeGitIgnore(import.meta.url),
-];
+export default defineConfig([
+  {
+    files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],
+    plugins: { js },
+    extends: ['js/recommended'],
+    languageOptions: { globals: { ...globals.browser, ...globals.node } },
+  },
+  tseslint.configs.recommended,
+  ProduckRule.config.ecma,
+  ProduckRule.config.json,
+  ProduckRule.config.markdown,
+  ProduckRule.excludeGitIgnore(import.meta.url),
+]);

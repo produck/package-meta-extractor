@@ -1,47 +1,51 @@
 {
-	"name": "@produck/package-meta-extractor",
-	"version": "1.0.0",
-	"description": "Extract metadata from npm packages.",
-	"license": "MIT",
-	"author": "ChaosLee",
-	"keywords": [
-		"package",
-		"meta",
-		"extractor",
-		"npm",
-		"metadata"
-	],
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/produck/package-meta-extractor.git",
-		"directory": "packages/package-meta-extractor"
-	},
-	"bugs": {
-		"url": "https://github.com/produck/package-meta-extractor/issues"
-	},
-	"homepage": "https://github.com/produck/package-meta-extractor#readme",
-	"publishConfig": {
-		"access": "public"
-	},
-	"type": "module",
-	"main": "src/index.mjs",
-	"types": "index.d.ts",
-	"exports": {
-		".": {
-			"types": "./index.d.ts",
-			"import": "./src/index.mjs"
-		}
-	},
-	"files": [
-		"src",
-		"index.d.ts"
-	],
-	"scripts": {
-		"test": "node ./test/index.mjs",
-		"test:only": "node --test-only ./test/index.mjs"
-	},
-	"dependencies": {
-		"@produck/ow": "^0.2.2",
-		"@produck/type-error": "^0.1.4"
-	}
+  "name": "@produck/package-meta-extractor",
+  "version": "1.0.0",
+  "description": "Extract metadata from npm packages.",
+  "license": "MIT",
+  "author": "ChaosLee",
+  "keywords": [
+    "package",
+    "meta",
+    "extractor",
+    "npm",
+    "metadata"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/produck/package-meta-extractor.git",
+    "directory": "packages/package-meta-extractor"
+  },
+  "bugs": {
+    "url": "https://github.com/produck/package-meta-extractor/issues"
+  },
+  "homepage": "https://github.com/produck/package-meta-extractor#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "main": "src/index.mjs",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./src/index.mjs"
+    }
+  },
+  "files": [
+    "src",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "test": "node ./test/index.mjs",
+    "test:only": "node --test-only ./test/index.mjs",
+    "produck:coverage": "c8 --reporter=lcov --reporter=html --reporter=text-summary npm test"
+  },
+  "dependencies": {
+    "@produck/ow": "^0.2.2",
+    "@produck/type-error": "^0.1.4"
+  },
+  "devDependencies": {
+    "c8": "11.0.0"
+  }
 }
