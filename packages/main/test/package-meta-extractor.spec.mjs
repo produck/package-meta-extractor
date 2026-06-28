@@ -20,7 +20,11 @@ describe('package-meta-extractor', () => {
   async function createFixture(pkg) {
     const dir = path.join(OUTPUT_DIR, `pkg-${fixtureIndex++}`);
     await fs.mkdir(dir, { recursive: true });
-    await fs.writeFile(path.join(dir, 'package.json'), JSON.stringify(pkg), 'utf-8');
+    await fs.writeFile(
+      path.join(dir, 'package.json'),
+      JSON.stringify(pkg),
+      'utf-8',
+    );
 
     return dir;
   }
@@ -94,7 +98,9 @@ describe('package-meta-extractor', () => {
     const extractor = new PackageExtractor(dir);
     await extractor.read();
 
-    await assert.rejects(() => extractor.generate(path.join(dir, 'out.mjs'), 'Python'));
+    await assert.rejects(() =>
+      extractor.generate(path.join(dir, 'out.mjs'), 'Python'),
+    );
   });
 
   it('should throw if generate pathname is not a string.', async () => {
@@ -118,6 +124,8 @@ describe('package-meta-extractor', () => {
     const extractor = new PackageExtractor(dir);
     await extractor.read();
 
-    await assert.rejects(() => extractor.generate(path.join(dir, 'out.ts'), 'ECMAScript'));
+    await assert.rejects(() =>
+      extractor.generate(path.join(dir, 'out.ts'), 'ECMAScript'),
+    );
   });
 });

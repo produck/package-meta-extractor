@@ -1,9 +1,24 @@
 {
-  "name": "@produck/package-meta-extractor",
-  "version": "1.0.2",
-  "description": "Extract metadata from npm packages.",
-  "license": "MIT",
   "author": "ChaosLee",
+  "bugs": {
+    "url": "https://github.com/produck/package-meta-extractor/issues"
+  },
+  "dependencies": {
+    "@produck/ow": "^0.2.5",
+    "@produck/type-error": "^0.1.7"
+  },
+  "description": "Extract metadata from npm packages.",
+  "exports": {
+    ".": {
+      "import": "./src/index.mjs",
+      "types": "./index.d.ts"
+    }
+  },
+  "files": [
+    "src",
+    "index.d.ts"
+  ],
+  "homepage": "https://github.com/produck/package-meta-extractor#readme",
   "keywords": [
     "package",
     "meta",
@@ -11,38 +26,23 @@
     "npm",
     "metadata"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/produck/package-meta-extractor.git",
-    "directory": "packages/package-meta-extractor"
-  },
-  "bugs": {
-    "url": "https://github.com/produck/package-meta-extractor/issues"
-  },
-  "homepage": "https://github.com/produck/package-meta-extractor#readme",
+  "license": "MIT",
+  "main": "src/index.mjs",
+  "name": "@produck/package-meta-extractor",
   "publishConfig": {
     "access": "public"
   },
-  "type": "module",
-  "main": "src/index.mjs",
-  "types": "index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./index.d.ts",
-      "import": "./src/index.mjs"
-    }
+  "repository": {
+    "directory": "packages/package-meta-extractor",
+    "type": "git",
+    "url": "git+https://github.com/produck/package-meta-extractor.git"
   },
-  "files": [
-    "src",
-    "index.d.ts"
-  ],
   "scripts": {
+    "produck:coverage": "c8 --reporter=lcov --reporter=html --reporter=text-summary npm test",
     "test": "node ./test/index.mjs",
-    "test:only": "node --test-only ./test/index.mjs",
-    "produck:coverage": "c8 --reporter=lcov --reporter=html --reporter=text-summary npm test"
+    "test:only": "node --test-only ./test/index.mjs"
   },
-  "dependencies": {
-    "@produck/ow": "^0.2.5",
-    "@produck/type-error": "^0.1.7"
-  }
+  "type": "module",
+  "types": "index.d.ts",
+  "version": "1.0.2"
 }
