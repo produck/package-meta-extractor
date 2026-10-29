@@ -48,5 +48,5 @@
   "sideEffects": false,
   "type": "module",
   "types": "src/index.d.mts",
-  "version": "1.0.2"
+  "version": "1.0.3"
 }
